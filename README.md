@@ -16,3 +16,12 @@ Follow these steps to set up `pyta4j` on your machine:
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/quickfox15/pyta4j.git
+   cd pyta4j/
+
+2. **Run quickstart**:
+   ```bash
+   python quickstart.py
+
+3. **Run tests**:
+   ```bash
+   python -m unittest discover -s tests -p "test*.py"
