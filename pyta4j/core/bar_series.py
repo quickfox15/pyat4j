@@ -1,5 +1,7 @@
 import sys
 
+from pytz import utc
+
 class BarSeries:
     def __init__(self, name, bars=None):
         self.name = name
@@ -27,7 +29,8 @@ class BarSeries:
 
             # Only validate end_time ordering if bar.end_time is not None
             if bar.end_time is not None and last_end_time is not None:
-                if bar.end_time <= last_end_time:
+                # if bar.end_time <= last_end_time:
+                if bar.end_time.astimezone(utc) <= last_end_time.astimezone(utc):
                     raise ValueError(
                         f"Cannot add a bar with end time: {bar.end_time} "
                         f"that is <= series end time: {last_end_time}"
