@@ -1,5 +1,3 @@
-from decimal import Decimal
-from typing import List
 
 from pyta4j.indicators.indicator import Indicator
 
@@ -8,10 +6,10 @@ class CachedIndicator(Indicator):
     def __init__(self):
         """Initialize the cached indicator with a source indicator."""
         super().__init__()
-        self.results: List[Decimal] = []  # Cache for computed values
-        self.highest_result_index = -1   # Tracks the highest computed index
+        self.results: list = []  # Cache for computed values
+        self.highest_result_index:int = -1   # Tracks the highest computed index
 
-    def get_value(self, index: int) -> Decimal:
+    def get_value(self, index: int):
         """Retrieve the value at the given index, using cache if available."""
         if index < 0:
             raise ValueError("Index cannot be negative")
@@ -38,6 +36,6 @@ class CachedIndicator(Indicator):
             self.results.extend([None] * new_results_count)
         self.highest_result_index = index
 
-    def calculate(self, index: int) -> Decimal:
+    def calculate(self, index: int):
         """Abstract method to compute the value at the given index."""
         raise NotImplementedError("Subclasses must implement calculate method")
