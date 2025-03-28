@@ -1,6 +1,6 @@
 from pyta4j.rules.rule import Rule
 
-class IsFallingRule(Rule):
+class IsRisingRule(Rule):
     def __init__(self,indicator,bar_count,min_strenght=1.0):
         super().__init__()
         self.indicator = indicator
@@ -12,7 +12,7 @@ class IsFallingRule(Rule):
 
         count = 0
         for i in range(max(0, index - self.bar_count + 1), index + 1):
-            if self.indicator.get_value(i) < self.indicator.get_value(max(0, i - 1)):
+            if self.indicator.get_value(i) > self.indicator.get_value(max(0, i - 1)):
                 count += 1
 
         ratio = count / float(self.bar_count)
