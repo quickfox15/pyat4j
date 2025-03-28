@@ -1,0 +1,4 @@
+pytest
+setuptools>=78
+numpy
+pandas
