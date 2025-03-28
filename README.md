@@ -27,30 +27,36 @@ A Python port of the excellent [TA4J](https://github.com/ta4j/ta4j) (Technical A
    ```bash
    git clone https://github.com/quickfox15/pyta4j.git
    cd pyta4j/
+   ```
 
 2. **(Optional) Create and activate a virtual environment**:
    ```bash
    python -m venv .venv
    source .venv/bin/activate           # On Linux/macOS
    .venv\Scripts\activate              # On Windows
+   ```
 
 3. **Install dependencies**:
    ```bash
    pip install -r requirements.txt
+   ```
 
 4. **Install in editable mode (recommended for development)**:
    ```bash
    pip install -e .
+   ```
 
 ## 🧪 Running Tests
    Run all unit tests with:
    ```bash
    python -m unittest discover -s tests -p "test*.py"
-   
+   ```
+
 ## 🏁 Quickstart Example
    Run the example file:
    ```bash
    python quickstart.py
+   ``` 
 
 ## 🗂 Project Structure
    ```bash
@@ -68,13 +74,14 @@ A Python port of the excellent [TA4J](https://github.com/ta4j/ta4j) (Technical A
    ├── requirements.txt
    ├── setup.py
    └── README.md
+   ``` 
 
 ## 📋 Requirements
-Python 3.9+
+- Python 3.9+
 
 ## 📄 License
-This project is licensed under the MIT License. See the LICENSE file for details.
+- This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## 🙏 Acknowledgments
-ta4j – The original Java-based inspiration for this project.
-Python open source community ❤️
+- ta4j – The original Java-based inspiration for this project.
+- Python open source community ❤️
