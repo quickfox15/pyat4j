@@ -61,14 +61,13 @@ A Python port of the excellent [TA4J](https://github.com/ta4j/ta4j) (Technical A
 ## 🗂 Project Structure
    ```bash
    pyta4j/
-   ├── src/
-   │   └── pyta4j/                    # Core library code
-   │       ├── core/                 # Bars, trades, positions
-   │       ├── indicators/           # Technical indicators
-   │       ├── rules/                # Entry/exit rules
-   │       ├── analysis/             # Performance criteria
-   │       ├── cost/                 # Cost models
-   │       └── utils/                # Helpers/loaders
+   ├── pyta4j/                    # Core library code
+│       ├── core/                 # Bars, trades, positions
+│       ├── indicators/           # Technical indicators
+│       ├── rules/                # Entry/exit rules
+│       ├── analysis/             # Performance criteria
+│       ├── cost/                 # Cost models
+│       └── utils/                # Helpers/loaders
    ├── tests/                        # Unit tests
    ├── quickstart.py                # Example script
    ├── requirements.txt
