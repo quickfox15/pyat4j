@@ -51,7 +51,7 @@ A Python port of the excellent [TA4J](https://github.com/ta4j/ta4j) (Technical A
    ```bash
    python -m unittest discover -s tests -p "test*.py"
    ```
-
+   
 ## 🏁 Quickstart Example
    Run the example file:
    ```bash
