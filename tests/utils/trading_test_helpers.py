@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from decimal import Decimal
 
 from pyta4j.core.bar import Bar
@@ -8,7 +8,7 @@ from pyta4j.core.trading_record import TradingRecord
 
 def populate_bar_series(prices)->BarSeries:
     duration = timedelta(hours=1)
-    end_time =   datetime(2014, 6, 25, 1, 0, 0)
+    end_time = datetime(2014, 6, 25, 1, 0, 0, tzinfo=timezone.utc)
     bar_series = BarSeries('test')
     for price in prices:
         bar = Bar(duration, end_time)
