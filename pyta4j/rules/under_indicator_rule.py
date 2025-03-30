@@ -7,7 +7,7 @@ class UnderIndicatorRule(Rule):
         super().__init__()
         self.first = first
         if isinstance(second,(int, float, Decimal)):
-            self.second  = ConstantIndicator(first.series, second)
+            self.second  = ConstantIndicator(second)
         else:
             self.second = second
     
