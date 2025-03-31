@@ -3,6 +3,7 @@
     "python.terminal.executeInFileDir": false,
     "terminal.integrated.cwd": "${workspaceFolder}",
     "python.envFile": "${workspaceFolder}/.env",
+    "python.analysis.extraPaths": ["${workspaceFolder}"],
     "python.testing.unittestArgs": [
         "-v",
         "-s",

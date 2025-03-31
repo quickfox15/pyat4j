@@ -1,5 +1,5 @@
-from pyta4j.core.position import Position
 from pyta4j.core.trade import TradeType
+from pyta4j.core.position import Position
 from pyta4j.cost.zero_cost_model import ZeroCostModel
 
 class TradingRecord:

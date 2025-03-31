@@ -1,8 +1,7 @@
-from decimal import Decimal
 import unittest
+from decimal import Decimal
 from pyta4j.analysis.criteria.maximum_drawdown_criterion import MaximumDrawdownCriterion
-from pyta4j.core.trade import Trade, TradeType
-from pyta4j.core.trading_record import TradingRecord
+from pyta4j.core import Trade, TradeType ,TradingRecord
 from tests.utils.trading_test_helpers import populate_bar_series
 
 class TestMaximumDrawdownCriterion(unittest.TestCase):
