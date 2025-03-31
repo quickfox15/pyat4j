@@ -1,0 +1,5 @@
+from .return_over_max_drawdown_criterion import ReturnOverMaxDrawdownCriterion
+from .versus_buy_and_hold_criterion import VersusBuyAndHoldCriterion
+from .number_of_winning_positions_criterion import NumberOfWinningPositionsCriterion
+from .number_of_losing_positions_criterion import NumberOfLosingPositionsCriterion
+from .winning_positions_ratio_criterion import WinningPositionsRatioCriterion

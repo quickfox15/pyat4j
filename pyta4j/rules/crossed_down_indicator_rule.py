@@ -7,7 +7,7 @@ class CrossedDownIndicatorRule(Rule):
     def __init__(self, indicator, threshold_or_indicator):
 
         if isinstance(threshold_or_indicator, (int, float)):
-            second_arg = ConstantIndicator(indicator.series, threshold_or_indicator)
+            second_arg = ConstantIndicator(threshold_or_indicator)
         else:
             second_arg = threshold_or_indicator
 

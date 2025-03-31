@@ -6,7 +6,7 @@ class CrossedUpIndicatorRule(Rule):
     def __init__(self, indicator1, indicator2_or_number):
 
         if isinstance(indicator2_or_number, (int, float)):
-            second_arg = ConstantIndicator(indicator1.series, indicator2_or_number)
+            second_arg = ConstantIndicator(indicator2_or_number)
         else:
             second_arg = indicator2_or_number
 

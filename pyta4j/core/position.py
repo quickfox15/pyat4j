@@ -45,6 +45,12 @@ class Position:
                 gross_profit = -gross_profit
             return gross_profit
         return Decimal('0')
+    
+    def has_profit(self):
+        return self.get_profit() > Decimal('0')
+    
+    def has_loss(self):
+        return self.get_profit() < Decimal('0')
 
     def get_gross_return(self):
 

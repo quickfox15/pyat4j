@@ -4,7 +4,6 @@ from pyta4j.analysis.criteria.analysis_criterion import AnalysisCriterion
 from pyta4j.analysis.criteria.maximum_drawdown_criterion import MaximumDrawdownCriterion
 from pyta4j.analysis.criteria.pnl.gross_return_criterion import GrossReturnCriterion
 
-
 class ReturnOverMaxDrawdownCriterion(AnalysisCriterion):
 
     def __init__(self):
