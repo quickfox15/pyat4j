@@ -1,7 +1,9 @@
 import unittest
 from decimal import Decimal
 from pyta4j.analysis.criteria.pnl.gross_return_criterion import GrossReturnCriterion
-from pyta4j.core import Position,TradeType,TradingRecord
+from pyta4j.core.trade import TradeType
+from pyta4j.core.trading_record import TradingRecord
+from pyta4j.core.position import Position
 from tests.utils.trading_test_helpers import populate_bar_series, populate_trading_record
 
 class TestGrossReturnCriterion(unittest.TestCase):
