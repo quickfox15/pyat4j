@@ -1,10 +1,8 @@
 from datetime import datetime, timedelta, timezone
 from decimal import Decimal
 
-from pyta4j.core.bar import Bar
-from pyta4j.core.bar_series import BarSeries
+from pyta4j.core.bar import Bar,BarSeries
 from pyta4j.core.trading_record import TradingRecord
-
 
 def populate_bar_series(prices)->BarSeries:
     duration = timedelta(hours=1)

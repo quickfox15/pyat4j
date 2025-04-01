@@ -1,7 +1,6 @@
 from decimal import Decimal
 from pyta4j.cost.cost_model import CostModel
-from pyta4j.core.position import Position
-from pyta4j.core.trade import TradeType
+from pyta4j.core.trade import TradeType,Position
 
 class LinearBorrowingCostModel(CostModel):
 

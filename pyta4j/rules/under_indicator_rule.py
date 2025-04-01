@@ -1,6 +1,6 @@
 from decimal import Decimal
-from pyta4j.indicators.constant_indicator import ConstantIndicator
-from pyta4j.rules.rule import Rule
+from pyta4j.indicators import ConstantIndicator
+from pyta4j.rules import Rule
 
 class UnderIndicatorRule(Rule):
     def __init__(self,first,second):
