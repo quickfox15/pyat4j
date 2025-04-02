@@ -1,6 +1,11 @@
 from decimal import Decimal
 from pyta4j.cost.zero_cost_model import ZeroCostModel
-from pyta4j.core import BarSeries,Trade, TradeType,TradingRecord,Strategy
+
+from pyta4j.core.bar_series import BarSeries
+from pyta4j.core.strategy import Strategy
+from pyta4j.core.trade import TradeType
+from pyta4j.core.trading_record import TradingRecord
+# from pyta4j.core import BarSeries,Trade, TradeType,TradingRecord,Strategy
 
 class BarSeriesManager:
     def __init__(self, series:BarSeries, transaction_cost_model=None, holding_cost_model=None):

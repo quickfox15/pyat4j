@@ -1,6 +1,6 @@
 import unittest
-from pyta4j.indicators.helpers.highest_value_Indicator import HighestValueIndicator
-from pyta4j.indicators.helpers.close_price_indicator import ClosePriceIndicator
+
+from pyta4j.indicators import ClosePriceIndicator,HighestValueIndicator
 from tests.utils.trading_test_helpers import populate_bar_series
 
 class TestHighstValueIndicator(unittest.TestCase):
