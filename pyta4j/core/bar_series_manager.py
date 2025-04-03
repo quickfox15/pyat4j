@@ -5,15 +5,12 @@ from pyta4j.core.bar_series import BarSeries
 from pyta4j.core.strategy import Strategy
 from pyta4j.core.trade import TradeType
 from pyta4j.core.trading_record import TradingRecord
-# from pyta4j.core import BarSeries,Trade, TradeType,TradingRecord,Strategy
 
 class BarSeriesManager:
     def __init__(self, series:BarSeries, transaction_cost_model=None, holding_cost_model=None):
         self.series = series
         self.transaction_cost_model = transaction_cost_model if transaction_cost_model else ZeroCostModel()
         self.holding_cost_model = holding_cost_model if holding_cost_model else ZeroCostModel()
-
-#    public TradingRecord run(Strategy strategy, TradeType tradeType, Num amount, int startIndex, int finishIndex) {
 
     def run(self, strategy:Strategy, trade_type=None, amount=None, start_index=None, finish_index=None):
         if trade_type is None:
