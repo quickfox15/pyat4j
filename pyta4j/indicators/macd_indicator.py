@@ -1,4 +1,3 @@
-from decimal import Decimal
 from pyta4j.indicators.cached_indicator import CachedIndicator
 from pyta4j.indicators.ema_indicator import EMAIndicator
 
