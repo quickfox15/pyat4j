@@ -10,10 +10,8 @@ from pyta4j.rules.crossed_up_indicator_rule import CrossedUpIndicatorRule
 from pyta4j.rules.crossed_down_indicator_rule import CrossedDownIndicatorRule
 from pyta4j.rules.stop_gain_rule import StopGainRule
 from pyta4j.rules.stop_loss_rule import StopLossRule
-from decimal import getcontext
 
 from tests.loaders.csv_trades_loader import CsvTradesLoader
-getcontext().prec = 28  # Match or exceed Java’s precision
 
 def main():
     series = CsvTradesLoader.load_bitstamp_series()

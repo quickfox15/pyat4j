@@ -2,7 +2,7 @@ import unittest
 
 from pyta4j.indicators.helpers.close_price_indicator import ClosePriceIndicator
 from pyta4j.indicators.rsi_indicator import RSIIndicator
-from tests.utils.trading_test_helpers import dec, populate_bar_series
+from tests.utils.trading_test_helpers import populate_bar_series
 
 class TestRSIIndicator(unittest.TestCase):
 
@@ -16,24 +16,24 @@ class TestRSIIndicator(unittest.TestCase):
 
     def test_hundred_if_no_loss(self):
         rsi = RSIIndicator(ClosePriceIndicator(self.series), 1)
-        self.assertEqual(dec(100), rsi.get_value(14))
-        self.assertEqual(dec(100), rsi.get_value(15))
+        self.assertEqual((100), rsi.get_value(14))
+        self.assertEqual((100), rsi.get_value(15))
 
     def test_zero_if_no_gain(self):
         rsi = RSIIndicator(ClosePriceIndicator(self.series), 1)
-        self.assertEqual(dec(0), rsi.get_value(1))
-        self.assertEqual(dec(0), rsi.get_value(2))
+        self.assertEqual((0), rsi.get_value(1))
+        self.assertEqual((0), rsi.get_value(2))
 
     def test_using_bar_count_14_using_close_price(self):
         rsi = RSIIndicator(ClosePriceIndicator(self.series), 14)
-        self.assertAlmostEqual(dec(68.4746), rsi.get_value(15), 3)
-        self.assertAlmostEqual(dec(64.7836), rsi.get_value(16), 3)
-        self.assertAlmostEqual(dec(72.0776), rsi.get_value(17), 3)
-        self.assertAlmostEqual(dec(60.7800), rsi.get_value(18), 3)
-        self.assertAlmostEqual(dec(63.6439), rsi.get_value(19), 3)
-        self.assertAlmostEqual(dec(72.3433), rsi.get_value(20), 3)
-        self.assertAlmostEqual(dec(67.3822), rsi.get_value(21), 3)
-        self.assertAlmostEqual(dec(68.5438), rsi.get_value(22), 3)
-        self.assertAlmostEqual(dec(76.2770), rsi.get_value(23), 3)
-        self.assertAlmostEqual(dec(77.9908), rsi.get_value(24), 3)
-        self.assertAlmostEqual(dec(67.4895), rsi.get_value(25), 3)
+        self.assertAlmostEqual((68.4746), rsi.get_value(15), 3)
+        self.assertAlmostEqual((64.7836), rsi.get_value(16), 3)
+        self.assertAlmostEqual((72.0776), rsi.get_value(17), 3)
+        self.assertAlmostEqual((60.7800), rsi.get_value(18), 3)
+        self.assertAlmostEqual((63.6439), rsi.get_value(19), 3)
+        self.assertAlmostEqual((72.3433), rsi.get_value(20), 3)
+        self.assertAlmostEqual((67.3822), rsi.get_value(21), 3)
+        self.assertAlmostEqual((68.5438), rsi.get_value(22), 3)
+        self.assertAlmostEqual((76.2770), rsi.get_value(23), 3)
+        self.assertAlmostEqual((77.9908), rsi.get_value(24), 3)
+        self.assertAlmostEqual((67.4895), rsi.get_value(25), 3)

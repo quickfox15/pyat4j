@@ -1,4 +1,3 @@
-from decimal import Decimal
 from pyta4j.core.trade import Trade, TradeType
 from pyta4j.cost.zero_cost_model import ZeroCostModel
 
@@ -39,32 +38,32 @@ class Position:
             # Costs could be subtracted here; using zero costs for simplicity
             return gross_profit
         elif self.is_opened() and final_price is not None:
-            hypothetical_exit_value = Decimal(str(final_price)) * self.entry.amount
+            hypothetical_exit_value = final_price * self.entry.amount
             gross_profit = hypothetical_exit_value - self.entry.get_value()
             if self.entry.trade_type == TradeType.SELL:
                 gross_profit = -gross_profit
             return gross_profit
-        return Decimal('0')
+        return 0
     
     def has_profit(self):
-        return self.get_profit() > Decimal('0')
+        return self.get_profit() > 0
     
     def has_loss(self):
-        return self.get_profit() < Decimal('0')
+        return self.get_profit() < 0
 
     def get_gross_return(self):
 
         entry_price = self.entry.price_per_asset
         exit_price = self.exit.price_per_asset
 
-        if entry_price == Decimal('0'):
+        if entry_price == 0:
             raise ValueError("Entry price cannot be zero")
         
         ratio = exit_price / entry_price
         if self.entry.trade_type == TradeType.BUY:
             return ratio
         else:
-            return Decimal('2') - ratio
+            return 2 - ratio
 
     def get_holding_cost(self, final_index):
         return self.holding_cost_model.calculate(self, final_index)

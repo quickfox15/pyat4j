@@ -1,5 +1,3 @@
-from decimal import Decimal
-
 from pyta4j.analysis.criteria.analysis_criterion import AnalysisCriterion
 from pyta4j.core.position import Position
 
@@ -10,7 +8,7 @@ class GrossReturnCriterion(AnalysisCriterion):
         if isinstance(trading_record, Position):
             return self.calculate_profit(trading_record)
         
-        total = Decimal('1')
+        total = 1
         for position in trading_record.get_positions():
             total *= self.calculate_profit(position)
         return total
@@ -18,5 +16,5 @@ class GrossReturnCriterion(AnalysisCriterion):
     def calculate_profit(self, position):
         if position.is_closed():
             return position.get_gross_return()
-        return Decimal(1)
+        return 1
 

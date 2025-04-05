@@ -1,11 +1,8 @@
-from decimal import Decimal
-
 from pyta4j.core.bar_series import BarSeries
 from pyta4j.core.position import Position
 from pyta4j.core.trade import TradeType
 from pyta4j.core.trading_record import TradingRecord
 from pyta4j.indicators.indicator import Indicator
-
 
 class CashFlow(Indicator):
     """
@@ -17,7 +14,7 @@ class CashFlow(Indicator):
     def __init__(self, bar_series: BarSeries, arg):
         # Initialize the CashFlow indicator with a bar series and either a position or trading record.
         self.bar_series = bar_series
-        self.values = [Decimal('1')]  # Initial cash flow value is 1
+        self.values = [1]  # Initial cash flow value is 1
         
         # Handle different constructor signatures
         if isinstance(arg, Position):
@@ -33,15 +30,15 @@ class CashFlow(Indicator):
 
         self.fill_to_the_end()
 
-    def get_value(self, index: int) -> Decimal:
+    def get_value(self, index: int):
         return self.values[index]
 
     def get_bar_series(self) -> BarSeries:
         return self.bar_series
 
-    def num_of(self, number: float) -> Decimal:
-        return Decimal(str(number))
-
+    def num_of(self, number: float):
+        return number
+    
     def get_size(self) -> int:
         return self.bar_series.get_bar_count()
 
@@ -64,7 +61,7 @@ class CashFlow(Indicator):
 
             n_periods = end_index - entry_index
             holding_cost = position.get_holding_cost(end_index)
-            avg_cost = holding_cost / self.num_of(n_periods) if n_periods > 0 else Decimal('0')
+            avg_cost = holding_cost / self.num_of(n_periods) if n_periods > 0 else 0
             net_entry_price = position.entry.net_price
             
             # Add intermediate cash flows
@@ -97,7 +94,7 @@ class CashFlow(Indicator):
             raise ValueError("Invalid argument type for CashFlow indicator.")
 
     @staticmethod
-    def add_cost(raw_price: Decimal, holding_cost: Decimal, is_long_trade: bool) -> Decimal:
+    def add_cost(raw_price, holding_cost, is_long_trade: bool):
         if is_long_trade:
             net_price = raw_price - holding_cost
         else:
@@ -105,11 +102,11 @@ class CashFlow(Indicator):
         return net_price
 
     @staticmethod
-    def get_intermediate_ratio(is_long_trade: bool, entry_price: Decimal, exit_price: Decimal) -> Decimal:
+    def get_intermediate_ratio(is_long_trade: bool, entry_price, exit_price) :
         if is_long_trade:
             ratio = exit_price / entry_price
         else:
-            ratio = Decimal('2') - (exit_price / entry_price)
+            ratio = 2 - (exit_price / entry_price)
         return ratio
 
     @staticmethod

@@ -1,4 +1,4 @@
-from decimal import Decimal
+import math
 from pyta4j.indicators.cached_indicator import CachedIndicator
 from pyta4j.indicators.statistics.variance_indicator import VarianceIndicator
 
@@ -13,4 +13,4 @@ class StandardDeviationIndicator(CachedIndicator):
         variance_value = self.variance.get_value(index)
         if variance_value is None:
             return None
-        return Decimal(variance_value).sqrt()
+        return math.sqrt(variance_value)

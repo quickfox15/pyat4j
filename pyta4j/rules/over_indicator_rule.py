@@ -1,4 +1,3 @@
-from decimal import Decimal
 from pyta4j.indicators.constant_indicator import ConstantIndicator
 from pyta4j.rules.rule import Rule
 
@@ -6,7 +5,7 @@ class OverIndicatorRule(Rule):
     def __init__(self,first,second):
         super().__init__()
         self.first = first
-        if isinstance(second,(int, float, Decimal)):
+        if isinstance(second,(int, float)):
             self.second  = ConstantIndicator(second)
         else:
             self.second = second

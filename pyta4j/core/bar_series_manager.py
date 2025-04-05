@@ -1,4 +1,3 @@
-from decimal import Decimal
 from pyta4j.cost.zero_cost_model import ZeroCostModel
 
 from pyta4j.core.bar_series import BarSeries
@@ -16,7 +15,7 @@ class BarSeriesManager:
         if trade_type is None:
             trade_type = TradeType.BUY
         if amount is None:
-            amount = Decimal(1)
+            amount = 1
         if start_index is None:
             start_index = self.series.series_begin_index
         if finish_index is None:

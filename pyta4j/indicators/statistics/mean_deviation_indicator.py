@@ -1,4 +1,3 @@
-from decimal import Decimal
 from pyta4j.indicators.cached_indicator import CachedIndicator
 from pyta4j.indicators.sma_indicator import SMAIndicator
 
@@ -10,7 +9,7 @@ class MeanDeviationIndicator(CachedIndicator):
         self.sma = SMAIndicator(indicator, bar_count)
 
     def calculate(self, index):
-        absolute_deviations = Decimal(0)
+        absolute_deviations = 0
         average = self.sma.get_value(index)
         start_index = max(0, index - self.bar_count + 1)
         nb_values = index - start_index + 1

@@ -1,3 +1,4 @@
+import math
 from pyta4j.indicators.cached_indicator import CachedIndicator
 
 class LowestValueIndicator(CachedIndicator):
@@ -7,7 +8,7 @@ class LowestValueIndicator(CachedIndicator):
         self.bar_count = bar_count
 
     def calculate(self, index):
-        if self.indicator.get_value(index).is_nan() and self.bar_count != 1:
+        if math.isnan(self.indicator.get_value(index)) and self.bar_count != 1:
             return LowestValueIndicator(self.indicator, self.bar_count - 1).get_value(index - 1)
         
         end = max(0, index - self.bar_count + 1)
