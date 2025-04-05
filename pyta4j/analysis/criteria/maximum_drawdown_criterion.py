@@ -1,10 +1,7 @@
-from decimal import Decimal
-
 from pyta4j.analysis.cash_flow import CashFlow
 from pyta4j.analysis.criteria.analysis_criterion import AnalysisCriterion
 from pyta4j.core.position import Position
 from pyta4j.core.trading_record import TradingRecord
-
 
 class MaximumDrawdownCriterion(AnalysisCriterion):
 
@@ -20,7 +17,7 @@ class MaximumDrawdownCriterion(AnalysisCriterion):
         if position.is_closed():
             cash_flow = CashFlow(series, position)
             return self.calculate_maximum_drawdown(series, cash_flow)
-        return Decimal('0')
+        return 0
 
     def calculate_trading_record(self, series, trading_record):
         cash_flow = CashFlow(series, trading_record)
@@ -30,8 +27,8 @@ class MaximumDrawdownCriterion(AnalysisCriterion):
         return criterion_value1 < criterion_value2
     
     def calculate_maximum_drawdown(self, series, cash_flow):
-        maximum_drawdown = Decimal('0')
-        max_peak = Decimal('0')
+        maximum_drawdown = 0
+        max_peak = 0
         if not series.is_empty():
             for i in range(series.series_begin_index, series.series_end_index + 1):
                 value = cash_flow.get_value(i)

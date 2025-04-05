@@ -1,8 +1,5 @@
-from decimal import Decimal
-
 from pyta4j.analysis.criteria.analysis_criterion import AnalysisCriterion
 from pyta4j.core.trading_record import TradingRecord
-
 
 class VersusBuyAndHoldCriterion(AnalysisCriterion):
     def __init__(self, return_criterion):

@@ -2,7 +2,6 @@
 
 from pyta4j.analysis.criteria.analysis_criterion import AnalysisCriterion
 
-
 class WinningPositionsRatioCriterion(AnalysisCriterion):
     def calculate(self, series, trading_record):
         positions = trading_record.get_positions()

@@ -1,5 +1,3 @@
-from decimal import Decimal
-
 from pyta4j.analysis.criteria.analysis_criterion import AnalysisCriterion
 from pyta4j.core.position import Position
 from pyta4j.core.trading_record import TradingRecord
