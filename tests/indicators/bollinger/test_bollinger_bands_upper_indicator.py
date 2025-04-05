@@ -1,7 +1,7 @@
 import unittest
 
 from pyta4j.indicators.statistics.standard_deviation_indicator import StandardDeviationIndicator
-from tests.utils.trading_test_helpers import dec, populate_bar_series
+from tests.utils.trading_test_helpers import populate_bar_series
 from pyta4j.indicators.sma_indicator import SMAIndicator
 from pyta4j.indicators.helpers.close_price_indicator import ClosePriceIndicator
 
@@ -24,26 +24,26 @@ class TestBollingerBandsUpperIndicator(unittest.TestCase):
 
         self.assertAlmostEqual(2, bbu_sma.k)
 
-        self.assertAlmostEqual(dec(1), bbu_sma.get_value(0))
-        self.assertAlmostEqual(dec(2.5), bbu_sma.get_value(1))
-        self.assertAlmostEqual(dec(3.633), bbu_sma.get_value(2),3)
-        self.assertAlmostEqual(dec(4.633), bbu_sma.get_value(3),3)
-        self.assertAlmostEqual(dec(4.2761), bbu_sma.get_value(4),3)
-        self.assertAlmostEqual(dec(4.6094), bbu_sma.get_value(5),3)
-        self.assertAlmostEqual(dec(5.633), bbu_sma.get_value(6),3)
-        self.assertAlmostEqual(dec(5.2761), bbu_sma.get_value(7),3)
-        self.assertAlmostEqual(dec(5.633), bbu_sma.get_value(8),3)
-        self.assertAlmostEqual(dec(4.2761), bbu_sma.get_value(9),3)
+        self.assertAlmostEqual((1), bbu_sma.get_value(0))
+        self.assertAlmostEqual((2.5), bbu_sma.get_value(1))
+        self.assertAlmostEqual((3.633), bbu_sma.get_value(2),3)
+        self.assertAlmostEqual((4.633), bbu_sma.get_value(3),3)
+        self.assertAlmostEqual((4.2761), bbu_sma.get_value(4),3)
+        self.assertAlmostEqual((4.6094), bbu_sma.get_value(5),3)
+        self.assertAlmostEqual((5.633), bbu_sma.get_value(6),3)
+        self.assertAlmostEqual((5.2761), bbu_sma.get_value(7),3)
+        self.assertAlmostEqual((5.633), bbu_sma.get_value(8),3)
+        self.assertAlmostEqual((4.2761), bbu_sma.get_value(9),3)
         
         bbuSMAwithK = BollingerBandsUpperIndicator(bbm_sma, standard_deviation, 1.5)
         self.assertAlmostEqual(1.5, bbuSMAwithK.k)
-        self.assertAlmostEqual(dec(1), bbuSMAwithK.get_value(0),3)
-        self.assertAlmostEqual(dec(2.25), bbuSMAwithK.get_value(1),3)
-        self.assertAlmostEqual(dec(3.2247), bbuSMAwithK.get_value(2),3)
-        self.assertAlmostEqual(dec(4.2247), bbuSMAwithK.get_value(3),3)
-        self.assertAlmostEqual(dec(4.0404), bbuSMAwithK.get_value(4),3)
-        self.assertAlmostEqual(dec(4.3737), bbuSMAwithK.get_value(5),3)
-        self.assertAlmostEqual(dec(5.2247), bbuSMAwithK.get_value(6),3)
-        self.assertAlmostEqual(dec(5.0404), bbuSMAwithK.get_value(7),3)
-        self.assertAlmostEqual(dec(5.2247), bbuSMAwithK.get_value(8),3) 
-        self.assertAlmostEqual(dec(4.0404), bbuSMAwithK.get_value(9),3)
+        self.assertAlmostEqual((1), bbuSMAwithK.get_value(0),3)
+        self.assertAlmostEqual((2.25), bbuSMAwithK.get_value(1),3)
+        self.assertAlmostEqual((3.2247), bbuSMAwithK.get_value(2),3)
+        self.assertAlmostEqual((4.2247), bbuSMAwithK.get_value(3),3)
+        self.assertAlmostEqual((4.0404), bbuSMAwithK.get_value(4),3)
+        self.assertAlmostEqual((4.3737), bbuSMAwithK.get_value(5),3)
+        self.assertAlmostEqual((5.2247), bbuSMAwithK.get_value(6),3)
+        self.assertAlmostEqual((5.0404), bbuSMAwithK.get_value(7),3)
+        self.assertAlmostEqual((5.2247), bbuSMAwithK.get_value(8),3) 
+        self.assertAlmostEqual((4.0404), bbuSMAwithK.get_value(9),3)

@@ -28,6 +28,3 @@ def populate_trading_record(trade_type, indices, bar_series)->TradingRecord:
             trading_record.exit(i, price, volume)
 
     return trading_record
-
-def dec(value):
-    return Decimal(str(value))
