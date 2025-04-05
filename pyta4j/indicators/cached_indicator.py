@@ -11,8 +11,10 @@ class CachedIndicator(Indicator):
 
     def get_value(self, index: int):
         """Retrieve the value at the given index, using cache if available."""
+        # if index < 0:
+        #     raise ValueError("Index cannot be negative")
         if index < 0:
-            raise ValueError("Index cannot be negative")
+            index = 0  # Treat negative indices as the earliest index
         
         # Extend the cache if the requested index is beyond current size
         if index >= len(self.results):

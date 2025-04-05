@@ -1,8 +1,9 @@
 from decimal import Decimal
 
 from pyta4j.indicators.cached_indicator import CachedIndicator
+from pyta4j.indicators.recursive_cached_indicator import RecursiveCachedIndicator
 
-class AbstractEMAIndicator(CachedIndicator):
+class AbstractEMAIndicator(RecursiveCachedIndicator):
     def __init__(self, indicator, bar_count, multiplier: Decimal):
         super().__init__()  # Initialize CachedIndicator
         self.bar_count = bar_count
