@@ -1,6 +1,4 @@
 
-from decimal import Decimal
-
 from pyta4j.indicators.cached_indicator import CachedIndicator
 from pyta4j.indicators.helpers.gain_indicator import GainIndicator
 from pyta4j.indicators.helpers.loss_indicator import LossIndicator
@@ -14,11 +12,10 @@ class RSIIndicator(CachedIndicator):
         self.average_gain_indicator = MMAIndicator(GainIndicator(indicator), bar_count)
         self.average_loss_indicator = MMAIndicator(LossIndicator(indicator), bar_count)
 
-
     def get_value(self, index):
         return self.calculate(index)
 
-    def calculate(self, index)->Decimal:
+    def calculate(self, index):
         average_gain = self.average_gain_indicator.get_value(index)
         average_loss = self.average_loss_indicator.get_value(index)
         if average_loss == 0:

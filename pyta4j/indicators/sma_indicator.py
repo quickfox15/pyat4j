@@ -1,4 +1,3 @@
-from decimal import Decimal
 import numpy as np
 from pyta4j.indicators.cached_indicator import CachedIndicator
 
@@ -9,7 +8,7 @@ class SMAIndicator(CachedIndicator):
         self.bar_count = bar_count
 
     def calculate(self, index):
-        total = Decimal('0')
+        total = 0
         start = max(0, index - self.bar_count + 1)
         for i in range(start, index + 1):
             total += self.indicator.get_value(i)

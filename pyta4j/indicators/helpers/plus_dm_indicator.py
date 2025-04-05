@@ -1,4 +1,3 @@
-from decimal import Decimal
 from pyta4j.indicators import CachedIndicator
 
 class PlusDMIndicator(CachedIndicator):
@@ -9,7 +8,7 @@ class PlusDMIndicator(CachedIndicator):
     
     def calculate(self, index):
         if index == 0:
-            return Decimal('0')
+            return 0
         prev_bar = self.series.get_bar(index - 1)
         current_bar = self.series.get_bar(index)
         up_move = current_bar.high_price - prev_bar.high_price
@@ -17,4 +16,4 @@ class PlusDMIndicator(CachedIndicator):
         if up_move > down_move and up_move > 0:
             return up_move
         else:
-            return Decimal('0')
+            return 0

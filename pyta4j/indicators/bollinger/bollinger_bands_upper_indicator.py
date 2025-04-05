@@ -1,4 +1,3 @@
-from decimal import Decimal
 from pyta4j.indicators import CachedIndicator
 
 class BollingerBandsUpperIndicator(CachedIndicator):
@@ -12,7 +11,7 @@ class BollingerBandsUpperIndicator(CachedIndicator):
         else:
             self.indicator = indicator
         self.indicator = indicator
-        self.k = Decimal(k)
+        self.k = k
     
     def calculate(self, index):
         return self.bbm.get_value(index) + (self.indicator.get_value(index) * self.k)
