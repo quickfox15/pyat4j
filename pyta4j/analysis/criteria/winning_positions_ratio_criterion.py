@@ -1,5 +1,3 @@
-
-
 from pyta4j.analysis.criteria.analysis_criterion import AnalysisCriterion
 
 class WinningPositionsRatioCriterion(AnalysisCriterion):

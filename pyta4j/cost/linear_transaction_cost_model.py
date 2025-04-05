@@ -1,13 +1,12 @@
-from decimal import Decimal
 from pyta4j.cost.cost_model import CostModel
 from pyta4j.core.position import Position
 
 class LinearTransactionCostModel(CostModel):
 
-    def __init__(self,feePerPosition:Decimal):
+    def __init__(self,feePerPosition):
         self.feePerPosition = feePerPosition
         
-    def calculate(self, position:Position, final_index=None)-> Decimal:
+    def calculate(self, position:Position, final_index=None):
         entryTrade = position.entry
         if entryTrade is not None:
             # transaction costs of entry trade
@@ -18,6 +17,5 @@ class LinearTransactionCostModel(CostModel):
         
         return None
 
- 
-    def calculate_price_amount(self, price:Decimal, amount:Decimal)-> Decimal:
+    def calculate_price_amount(self, price, amount):
         return self.feePerPosition * price * amount
