@@ -1,5 +1,3 @@
-
-
 class Strategy:
     def __init__(self, buying_rule, selling_rule):
         self.buying_rule = buying_rule

@@ -1,12 +1,10 @@
-from decimal import Decimal
-  
 class Bar:
     def __init__(self, duration, end_time, begin_time=None):
         self.duration = duration
         self.end_time = end_time
         self.begin_time = begin_time or (end_time - duration)
         self.trades = 0
-        self.volume = Decimal('0')  # Initialize as Decimal
+        self.volume = 0
         self.open_price = None
         self.high_price = None
         self.low_price = None
@@ -19,9 +17,6 @@ class Bar:
 
     def add_trade(self, volume, price):
         self.trades += 1
-        # Convert inputs to Decimal for precision
-        volume = Decimal(str(volume))
-        price = Decimal(str(price))
         self.volume += volume
         if self.open_price is None:
             self.open_price = price

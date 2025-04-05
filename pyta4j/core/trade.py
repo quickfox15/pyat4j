@@ -1,4 +1,3 @@
-from decimal import Decimal
 from enum import Enum
 from pyta4j.cost.zero_cost_model import ZeroCostModel
 
@@ -13,9 +12,6 @@ class Trade:
     def __init__(self, index, trade_type, price_per_asset, amount, cost_model=None):
         self.index = index
         self.trade_type = trade_type
-        self.amount = Decimal(str(amount))
-        self.price_per_asset = Decimal(str(price_per_asset))
-
         self.cost_model = cost_model if cost_model else ZeroCostModel()
         self.cost = self.cost_model.calculate_price_amount(self.price_per_asset, self.amount)
 
