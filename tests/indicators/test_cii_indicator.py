@@ -2,7 +2,7 @@
 import unittest
 
 from pyta4j.indicators.cci_indicator import CCIIndicator
-from tests.utils.trading_test_helpers import dec, populate_bar_series
+from tests.utils.trading_test_helpers import populate_bar_series
 
 
 class TestCCIIndicator(unittest.TestCase):
@@ -17,14 +17,14 @@ class TestCCIIndicator(unittest.TestCase):
         cci = CCIIndicator(self.series, 20)
 
         # Incomplete time frame
-        self.assertAlmostEqual(dec(0), cci.get_value(0))
-        self.assertAlmostEqual(dec(-66.6667), cci.get_value(1), 4)
-        self.assertAlmostEqual(dec(-100), cci.get_value(2), 4)
-        self.assertAlmostEqual(dec(14.365), cci.get_value(10), 4)
-        self.assertAlmostEqual(dec(54.2544), cci.get_value(11), 4)
+        self.assertAlmostEqual((0), cci.get_value(0))
+        self.assertAlmostEqual((-66.6667), cci.get_value(1), 4)
+        self.assertAlmostEqual((-100), cci.get_value(2), 4)
+        self.assertAlmostEqual((14.365), cci.get_value(10), 4)
+        self.assertAlmostEqual((54.2544), cci.get_value(11), 4)
 
         # Complete time frame
         results20to30 = [101.9185, 31.1946, 6.5578, 33.6078, 34.9686, 13.6027, -10.6789, -11.471,
                 -29.2567, -128.6, -72.7273]
         for i in range(0, len(results20to30)):
-            self.assertAlmostEqual(dec(results20to30[i]), cci.get_value(i + 19), 4)
+            self.assertAlmostEqual((results20to30[i]), cci.get_value(i + 19), 4)

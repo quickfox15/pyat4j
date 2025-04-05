@@ -3,7 +3,7 @@ import numpy as np
 from pyta4j.indicators.helpers.close_price_indicator import ClosePriceIndicator
 from pyta4j.indicators.sma_indicator import SMAIndicator
 from tests.loaders.csv_trades_loader import CsvTradesLoader
-from tests.utils.trading_test_helpers import dec, populate_bar_series
+from tests.utils.trading_test_helpers import populate_bar_series
 
 class TestSMAIndicator(unittest.TestCase):
     def setUp(self):
@@ -33,16 +33,16 @@ class TestSMAIndicator(unittest.TestCase):
         series = populate_bar_series(prices)
         close_price = ClosePriceIndicator(series);
         indicator = SMAIndicator(close_price, 3)
-        self.assertAlmostEqual(dec(1), indicator.get_value(0))
-        self.assertAlmostEqual(dec(1.5), indicator.get_value(1))
-        self.assertAlmostEqual(dec(2), indicator.get_value(2))
-        self.assertAlmostEqual(dec(3), indicator.get_value(3))
-        self.assertAlmostEqual(dec(10/3), indicator.get_value(4))
-        self.assertAlmostEqual(dec(11/3), indicator.get_value(5))
-        self.assertAlmostEqual(dec(4), indicator.get_value(6))
-        self.assertAlmostEqual(dec(13/3), indicator.get_value(7))
-        self.assertAlmostEqual(dec(4), indicator.get_value(8))
-        self.assertAlmostEqual(dec(10/3), indicator.get_value(9))
-        self.assertAlmostEqual(dec(10/3), indicator.get_value(10))
-        self.assertAlmostEqual(dec(10/3), indicator.get_value(11))
-        self.assertAlmostEqual(dec(3), indicator.get_value(12))
+        self.assertAlmostEqual((1), indicator.get_value(0))
+        self.assertAlmostEqual((1.5), indicator.get_value(1))
+        self.assertAlmostEqual((2), indicator.get_value(2))
+        self.assertAlmostEqual((3), indicator.get_value(3))
+        self.assertAlmostEqual((10/3), indicator.get_value(4))
+        self.assertAlmostEqual((11/3), indicator.get_value(5))
+        self.assertAlmostEqual((4), indicator.get_value(6))
+        self.assertAlmostEqual((13/3), indicator.get_value(7))
+        self.assertAlmostEqual((4), indicator.get_value(8))
+        self.assertAlmostEqual((10/3), indicator.get_value(9))
+        self.assertAlmostEqual((10/3), indicator.get_value(10))
+        self.assertAlmostEqual((10/3), indicator.get_value(11))
+        self.assertAlmostEqual((3), indicator.get_value(12))

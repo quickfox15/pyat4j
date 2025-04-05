@@ -3,7 +3,6 @@ import unittest
 from pyta4j.core.trade import TradeType
 from pyta4j.core.trading_record import TradingRecord
 
-
 class TestTradingWithStoploss(unittest.TestCase):
     def test_trading_record_and_stop(self):
         # Create a trading record

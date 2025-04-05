@@ -1,5 +1,4 @@
 import unittest
-from decimal import Decimal
 from pyta4j.analysis.criteria.maximum_drawdown_criterion import MaximumDrawdownCriterion
 from pyta4j.core.trading_record import TradingRecord
 from pyta4j.core.trade import Trade, TradeType
@@ -50,7 +49,7 @@ class TestMaximumDrawdownCriterion(unittest.TestCase):
                   Trade.buy_at(3, prices[3], 1), Trade.sell_at(4, prices[4], 1),
                   Trade.sell_at(5, prices[5], 1), Trade.buy_at(6, prices[6], 1)]
         trading_record.initialize_from_trades(trades)
-        self.assertAlmostEqual(Decimal('3.8'), self.criterion.calculate(series, trading_record))
+        self.assertAlmostEqual(3.8, self.criterion.calculate(series, trading_record))
 
     def test_with_simple_trades(self):
         prices = [1, 10, 5, 6, 1]
@@ -61,8 +60,8 @@ class TestMaximumDrawdownCriterion(unittest.TestCase):
                   Trade.buy_at(2, prices[2], 1), Trade.sell_at(3, prices[3], 1),
                   Trade.buy_at(3, prices[3], 1), Trade.sell_at(4, prices[4], 1)]
         trading_record.initialize_from_trades(trades)
-        self.assertAlmostEqual(Decimal('.9'), self.criterion.calculate(series, trading_record))
+        self.assertAlmostEqual(.9, self.criterion.calculate(series, trading_record))
 
     def test_better_than(self):
-        self.assertTrue(self.criterion.better_than(Decimal('.9'), Decimal('1.5')))
-        self.assertFalse(self.criterion.better_than(Decimal('1.2'), Decimal('.4')))
+        self.assertTrue(self.criterion.better_than(.9, 1.5))
+        self.assertFalse(self.criterion.better_than(1.2, .4))
